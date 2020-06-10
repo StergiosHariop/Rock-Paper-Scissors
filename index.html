@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset='utf-8'> 
+        <title>RPS Game</title>
+        <link href="RockPaperScissors.css" rel="stylesheet" type="text/css">
+        <title></title>
+    </head>
+    <body>
+        <h1>LETS PLAY!</h1>
+        <div id="logo">
+            <img src="https://static-s.aa-cdn.net/img/ios/905724516/f39128491efb32c4699f49a487c75822?v=1" alt="">
+        </div>
+        <div class="playButtons">
+        <form id="buttons">
+           <button type="button" class="btn" id="rock">Rock</button>
+           <button type="button" class="btn" id="paper">Paper</button>
+           <button type="button" class="btn" id="scissors">Scissors</button>
+        </form>
+        </div>
+        <div id="gameScoreBoard"></div>
+        <div id="gameResults"></div>
+        <div id="restartButton">
+           <button type="button" class="btn" onclick="window.location.reload()">Reset</button>
+        </div>
+
+        <script>
+
+            let computerScore=0;          
+            let playerScore=0;                   
+            
+            document.querySelectorAll('.btn').forEach((element)=>{
+                element.addEventListener('click', (event)=>{
+                                
+                    function computerPlay(){
+                        let values = ['rock' ,'paper', 'scissors'];
+                        let choice = values[Math.floor(Math.random()*values.length)];
+                        return choice;
+                        }                           
+                    function playRound(playerSelection,computerSelection){
+                let result;
+            
+                if(playerSelection ==='rock' && computerSelection ==='scissors'){
+                    playerScore++;                   
+                     result='Your opponent reveals scissors..You win!';                                     
+                }
+                else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+                    computerScore++;
+                    result='Your opponent reveals rock..You lost!';                              
+                }
+                else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+                    playerScore++;
+                   result='Your opponent reveals paper..You win!';                                     
+                }
+                else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+                    computerScore++;
+                   result='Your opponent reveals scissors..You lost!';                                      
+                }
+                else if (playerSelection === 'paper' && computerSelection === 'rock'){
+                    playerScore++;
+                    result='Your opponent reveals rock..You win!';                                      
+                }
+                else if (playerSelection === 'rock' && computerSelection === 'paper'){
+                    computerScore++;
+                    result='Your opponent reveals paper..You lost!';                                     
+                }
+                else if (playerSelection === computerSelection){
+                    result='Your opponent reveals' + ' ' + computerSelection + '..draw!';
+                }           
+                return result;               
+            }
+                    function gameOver(){ 
+                        if(playerScore>computerScore){
+                            return 'GAME OVER! YOU WIN!';}
+                            else{ return 'GAME OVER! YOU LOSE!';}
+                    }
+                         
+                    let player = element.id;                    
+                    let computer=computerPlay(); 
+
+                                                                  
+                    document.getElementById('gameResults').innerHTML = playRound(player,computer);  
+                    document.getElementById('gameScoreBoard').innerHTML = 'Player score: '+ playerScore  + ' ' + 'Computer score: ' + computerScore;       
+                    
+                    if(computerScore===5 || playerScore===5){
+
+                        const h1 = document.getElementsByTagName('h1')[0];
+                        h1.innerHTML = gameOver();
+                       
+                        document.getElementById('buttons').innerHTML =''; 
+                    }   
+                });
+            });  
+                              
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+body{
+    text-align: center;
+    margin-top: 10%;
+    font-family: "Roboto", sans-serif;
+}
+h1{
+    color:#7f00ff;  
+  text-shadow: 2px 4px rgba(32,33,36,0.28);
+    
+}
+:root {
+    --purple: #7f00ff;
+    --pink: #e100ff;
+  }
+.btn{
+  font-size: 16px;
+  position: relative;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.75em 1.75em;
+  border-radius: 20px;
+  display: inline-block;
+  color: #fff;
+  box-shadow: 0 10px 6px 0 rgba(32,33,36,0.28);
+  background: linear-gradient(to right, var(--purple), var(--pink));
+}
+#gameScoreBoard{
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    color:#7f00ff;  
+  text-shadow: 2px 4px rgba(32,33,36,0.28);
+}
+#gameResults{
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color:#7f00ff;  
+  text-shadow: 2px 4px rgba(32,33,36,0.28);
+}
+#restartButton{
+    margin-left: -25px;
+    margin-top: 50px;
+}
