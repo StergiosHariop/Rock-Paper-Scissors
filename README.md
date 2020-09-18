@@ -3,4 +3,4 @@
 Documentation:
 https://www.theodinproject.com/courses/web-development-101/lessons/rock-paper-scissors
 
-Written with JavaScript using functions and loops.
+Written in JavaScript using functions and loops.
